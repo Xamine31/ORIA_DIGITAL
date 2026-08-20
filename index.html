@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ORIA Digital — présence digitale, contenu, automatisation IA et maintenance.">
+<title>ORIA Digital — Votre présence digitale, gérée chaque mois.</title>
+<link rel="icon" href="oria-mark.png">
+<style>
+:root{--bg:#050505;--panel:#0d0d0d;--gold:#d6b36a;--gold2:#f1d69b;--text:#f7f2e8;--muted:#aaa49a;--line:#2a261f;--max:1160px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at 82% 5%,#251b0b 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55}
+a{text-decoration:none;color:inherit}.wrap{width:min(var(--max),92%);margin:auto}
+nav{position:sticky;top:0;z-index:10;background:#050505e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{height:42px;width:auto}
+.links{display:flex;gap:28px;color:#d7d0c4;font-size:14px}.links a:hover{color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;border:1px solid #9b7b3f;background:linear-gradient(#e6c77f,#b68c40);color:#090806;font-weight:800;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--gold2);box-shadow:none}
+.hero{padding:105px 0 90px;min-height:670px;display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center}
+.eyebrow{color:var(--gold);letter-spacing:.22em;text-transform:uppercase;font-size:12px;font-weight:800}
+h1{font-size:clamp(44px,6.2vw,76px);line-height:1.01;letter-spacing:-.045em;margin:17px 0 24px}h1 span{color:var(--gold2)}
+.lead{font-size:19px;color:var(--muted);max-width:650px}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero-card{min-height:450px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,#121212,#080808);padding:34px;position:relative;overflow:hidden}
+.orb{position:absolute;width:280px;height:280px;border-radius:50%;right:-70px;top:-80px;background:radial-gradient(circle,#e7cb8e55 0,#a67b2c11 45%,transparent 70%)}
+.hero-logo{width:78%;max-width:360px;display:block;margin:55px auto 28px;filter:drop-shadow(0 18px 35px #000)}
+.tag{display:inline-block;border:1px solid #5c4b2d;color:var(--gold2);padding:8px 11px;border-radius:999px;font-size:12px;margin:4px}
+section{padding:92px 0}.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,#090909,#15110a,#090909)}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:40px}
+h2{font-size:42px;line-height:1.05;margin:8px 0;letter-spacing:-.03em}.sub{color:var(--muted);max-width:620px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:linear-gradient(180deg,#101010,#0a0a0a);border:1px solid var(--line);border-radius:22px;padding:26px;min-height:210px}
+.num{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:.15em}.card h3{font-size:22px;margin:20px 0 10px}.card p{color:var(--muted);margin:0}.price{color:var(--gold2);font-size:25px;font-weight:850;margin-top:20px}
+.quote{font-size:30px;line-height:1.25;max-width:900px;margin:0 auto;text-align:center}.quote strong{color:var(--gold2)}
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step{padding:22px;border-left:1px solid var(--line)}.step:first-child{border-left:0}
+.step b{display:block;color:var(--gold);font-size:12px;letter-spacing:.15em}.step h3{margin:12px 0 8px}.step p{color:var(--muted);margin:0}
+.cta{border:1px solid #5c4b2d;border-radius:30px;padding:55px;background:radial-gradient(circle at 75% 30%,#5c431f33,transparent 38%),#0b0b0b;text-align:center}
+form{max-width:700px;margin:28px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:13px;text-align:left}
+input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:var(--text);padding:14px 15px;border-radius:12px;font:inherit}textarea{min-height:120px;grid-column:1/-1;resize:vertical}
+.full{grid-column:1/-1}footer{padding:45px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.smallmark{height:34px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:70px}.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.links{display:none}}
+@media(max-width:560px){h2{font-size:34px}.grid4{grid-template-columns:1fr}.process{grid-template-columns:1fr}.step{border-left:0;border-top:1px solid var(--line)}.step:first-child{border-top:0}form{grid-template-columns:1fr}textarea,.full{grid-column:1}.hero-card{min-height:350px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap navin">
+<a href="#top"><img class="brand" src="oria-logo.png" alt="ORIA Digital"></a>
+<div class="links"><a href="#offres">Offres</a><a href="#methode">Méthode</a><a href="#apropos">À propos</a><a href="#contact">Contact</a></div>
+<a class="btn" href="#contact">Parler à ORIA</a>
+</div></nav>
+
+<main id="top">
+<section class="wrap hero">
+<div><div class="eyebrow">ORIA DIGITAL</div>
+<h1>Votre présence digitale,<br><span>gérée chaque mois.</span></h1>
+<p class="lead">Site web, contenu, automatisation IA et maintenance : ORIA accompagne votre entreprise avec une approche simple, premium et continue.</p>
+<div class="actions"><a class="btn" href="#contact">Demander un diagnostic</a><a class="btn ghost" href="#offres">Découvrir les offres</a></div>
+</div>
+<div class="hero-card"><div class="orb"></div><img class="hero-logo" src="oria-mark.png" alt="Logo ORIA">
+<div style="text-align:center"><span class="tag">WEB</span><span class="tag">CONTENT</span><span class="tag">IA</span><span class="tag">MAINTENANCE</span></div></div>
+</section>
+
+<section class="band"><div class="wrap" style="padding:58px 0"><p class="quote">Un seul interlocuteur pour <strong>construire, faire vivre et améliorer</strong> votre présence digitale.</p></div></section>
+
+<section id="offres" class="wrap"><div class="section-head"><div><div class="eyebrow">NOS OFFRES</div><h2>Les quatre briques ORIA.</h2></div><p class="sub">Des prestations complémentaires pour créer une relation durable avec votre entreprise.</p></div>
+<div class="grid4">
+<article class="card"><div class="num">01 / WEB</div><h3>Site & présence</h3><p>Création et évolution de sites web et de votre présence en ligne.</p><div class="price">600–1 500 €+</div></article>
+<article class="card"><div class="num">02 / CONTENT</div><h3>Contenu</h3><p>Vidéos, photos et publications pour faire vivre votre image.</p><div class="price">299–799 € / mois</div></article>
+<article class="card"><div class="num">03 / IA</div><h3>Automatisation</h3><p>Workflows et agents IA pour automatiser certaines tâches.</p><div class="price">500–2 000 €+</div></article>
+<article class="card"><div class="num">04 / MAINTENANCE</div><h3>Suivi</h3><p>Maintenance, modifications et optimisation dans la durée.</p><div class="price">50–150 € / mois</div></article>
+</div></section>
+
+<section id="methode" class="wrap"><div class="section-head"><div><div class="eyebrow">LA MÉTHODE</div><h2>Du diagnostic au suivi.</h2></div><p class="sub">L'objectif est de transformer un besoin ponctuel en accompagnement continu.</p></div>
+<div class="process">
+<div class="step"><b>01</b><h3>Diagnostic</h3><p>Comprendre les besoins et les points à améliorer.</p></div>
+<div class="step"><b>02</b><h3>Installation</h3><p>WEB, contenu ou IA selon la priorité.</p></div>
+<div class="step"><b>03</b><h3>Abonnement</h3><p>Production, maintenance et optimisation mensuelles.</p></div>
+<div class="step"><b>04</b><h3>Extension</h3><p>Ajouter de nouvelles automatisations et prestations.</p></div>
+</div></section>
+
+<section id="apropos" class="wrap"><div class="section-head"><div><div class="eyebrow">POURQUOI ORIA</div><h2>Une approche pensée pour durer.</h2></div></div>
+<div class="grid3">
+<article class="card"><div class="num">01</div><h3>Un interlocuteur</h3><p>Une relation simple pour piloter les différents besoins digitaux.</p></article>
+<article class="card"><div class="num">02</div><h3>Une image premium</h3><p>Une identité cohérente et une attention portée à la qualité des livrables.</p></article>
+<article class="card"><div class="num">03</div><h3>Une logique continue</h3><p>Le digital n'est pas livré puis oublié : il est maintenu et amélioré.</p></article>
+</div></section>
+
+<section id="contact" class="wrap"><div class="cta">
+<div class="eyebrow">PARLONS DE VOTRE PROJET</div><h2>Votre présence digitale mérite mieux.</h2>
+<p class="sub" style="margin:0 auto">Demandez un premier échange avec ORIA pour identifier vos priorités.</p>
+<form action="mailto:contact@oriadigital.fr" method="post" enctype="text/plain">
+<input name="nom" placeholder="Nom / entreprise" required><input name="email" type="email" placeholder="Votre email" required>
+<input class="full" name="sujet" placeholder="Votre besoin"><textarea name="message" placeholder="Parlez-nous rapidement de votre projet"></textarea>
+<button class="btn full" type="submit">Envoyer ma demande</button>
+</form></div></section>
+</main>
+<footer><div class="wrap foot"><img class="smallmark" src="oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — Tous droits réservés.</div></div></footer>
+</body></html>
