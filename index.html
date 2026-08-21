@@ -88,84 +88,100 @@ input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:
 <div class="eyebrow">PARLONS DE VOTRE PROJET</div><h2>Votre présence digitale mérite mieux.</h2>
 <p class="sub" style="margin:0 auto">Demandez un premier échange avec ORIA pour identifier vos priorités.</p>
 
-<form id="contact-form" action="https://formsubmit.co/oriadigital@outlook.fr" method="POST">
-    <input
-        name="nom"
-        placeholder="Nom / entreprise"
-        required
-    >
-    <input
-        name="email"
-        type="email"
-        placeholder="Votre email"
-        required
-    >
-    <input
-        class="full"
-        name="sujet"
-        placeholder="Votre besoin"
-    >
-    <textarea
-        name="message"
-        placeholder="Parler-nous rapidement de votre projet"
-        required
-    ></textarea>
-    <input type="hidden" name="_subject" value="Nouveau contact - ORIA Digital">
-    <input type="hidden" name="_template" value="table">
+<form
+  action="https://formsubmit.co/oriadigital@outlook.fr"
+  method="POST"
+>
 
-    <input
-        type="text"
-        name="_honey"
-        style="display: none"
-        tabindex="-1"
-        autocomplete="off"
-    >
-    <button id="submit-btn" class="btn full" type="submit">
-        Envoyer ma demande
-    </button>
-    <div id="form-message" class="full" role="status" aria-live="polite"></div>
-</from></div></section>
+  <input
+    name="nom"
+    placeholder="Nom / entreprise"
+    required
+  >
+
+  <input
+    name="email"
+    type="email"
+    placeholder="Votre email"
+    required
+  >
+
+  <input
+    class="full"
+    name="sujet"
+    placeholder="Votre besoin"
+  >
+
+  <textarea
+    name="message"
+    placeholder="Parlez-nous rapidement de votre projet"
+    required
+  ></textarea>
+
+  <input
+    type="hidden"
+    name="_subject"
+    value="Nouveau contact - ORIA Digital"
+  >
+
+  <input
+    type="hidden"
+    name="_template"
+    value="table"
+  >
+
+  <input
+    type="hidden"
+    name="_next"
+    value="https://xamine31.github.io/ORIA_DIGITAL/?sent=1#contact"
+  >
+
+  <input
+    type="text"
+    name="_honey"
+    style="display:none"
+    tabindex="-1"
+    autocomplete="off"
+  >
+
+  <button class="btn full" type="submit">
+    Envoyer ma demande
+  </button>
+
+</form></div></section>
 </main>
 <footer><div class="wrap foot"><img class="smallmark" src="oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — Tous droits réservés.</div></div></footer>
 
 <script>
-const form = document.getElementById("contact-form");
-const button = document.getElementById("submit-btn");
-const message = document.getElementById("form-message");
+const params = new URLSearchParams(window.location.search);
 
-form.addEventListener("submit", async function(event) {
-  event.preventDefault();
+if (params.get("sent") === "1") {
+  const contact = document.getElementById("contact");
 
-  button.disabled = true;
-  button.textContent = "Envoi en cours…";
-  message.textContent = "";
-  message.style.marginTop = "15px";
+  const success = document.createElement("div");
+  success.textContent =
+    "✓ Demande envoyée avec succès ! Nous reviendrons vers vous rapidement.";
 
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: {
-        "Accept": "application/json"
-      }
-    });
+  success.style.cssText = `
+    margin: 20px auto 0;
+    padding: 15px 20px;
+    border: 1px solid #8f7138;
+    border-radius: 12px;
+    background: #151109;
+    color: #d6b36a;
+    text-align: center;
+    max-width: 700px;
+    font-weight: 700;
+  `;
 
-    if (response.ok) {
-      message.textContent = "✓ Demande envoyée avec succès ! Nous reviendrons vers vous rapidement.";
-      message.style.color = "#d6b36a";
-      form.reset();
-    } else {
-      throw new Error("Erreur d'envoi");
-    }
+  contact.querySelector(".cta").appendChild(success);
 
-  } catch (error) {
-    message.textContent = "Une erreur est survenue. Vous pouvez réessayer dans quelques instants.";
-    message.style.color = "#e6a4a4";
-  }
-
-  button.disabled = false;
-  button.textContent = "Envoyer ma demande";
-});
+  window.history.replaceState(
+    {},
+    document.title,
+    window.location.pathname + "#contact"
+  );
+}
 </script>
 
 </body></html>
