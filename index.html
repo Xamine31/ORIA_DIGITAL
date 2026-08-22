@@ -37,16 +37,36 @@ h2{font-size:42px;line-height:1.05;margin:8px 0;letter-spacing:-.03em}.sub{color
 form{max-width:700px;margin:28px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:13px;text-align:left}
 input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:var(--text);padding:14px 15px;border-radius:12px;font:inherit}textarea{min-height:120px;grid-column:1/-1;resize:vertical}
 .full{grid-column:1/-1}footer{padding:45px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.smallmark{height:34px}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:70px}.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.links{display:none}}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold2);border-radius:10px;width:44px;height:44px;font-size:24px;cursor:pointer}
+.mobile-menu{display:none}
+.mobile-menu a{display:block;padding:15px 4%;color:#d7d0c4;border-top:1px solid var(--line)}
+.mobile-menu a:hover{color:var(--gold2)}
+.mobile-cta{color:#080705!important;background:linear-gradient(#e6c77f,#b68c40);font-weight:800;text-align:center;margin:15px 4%;border-radius:999px;border-top:none!important}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:70px}.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.links,.desktop-btn{display:none}.menu-btn{display:block}.mobile-menu.active{display:block}}
 @media(max-width:560px){h2{font-size:34px}.grid4{grid-template-columns:1fr}.process{grid-template-columns:1fr}.step{border-left:0;border-top:1px solid var(--line)}.step:first-child{border-top:0}form{grid-template-columns:1fr}textarea,.full{grid-column:1}.hero-card{min-height:350px}}
 </style>
 </head>
 <body>
-<nav><div class="wrap navin">
+<nav>
+<div class="wrap navin">
 <a href="#top"><img class="brand" src="oria-logo.png" alt="ORIA Digital"></a>
-<div class="links"><a href="#offres">Offres</a><a href="#methode">Méthode</a><a href="#apropos">À propos</a><a href="contact.html">Contact</a></div>
-<a class="btn" href="#contact">Parler à ORIA</a>
-</div></nav>
+<div class="links">
+<a href="#offres">Offres</a>
+<a href="#methode">Méthode</a>
+<a href="#apropos">À propos</a>
+<a href="contact.html">Contact</a>
+</div>
+<a class="btn desktop-btn" href="contact.html">Parler à ORIA</a>
+<button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+</div>
+<div class="mobile-menu" id="mobile-menu">
+<a href="#offres">Offres</a>
+<a href="#methode">Méthode</a>
+<a href="#apropos">À propos</a>
+<a href="contact.html">Contact</a>
+<a class="mobile-cta" href="contact.html">Parler à ORIA</a>
+</div>
+</nav>
 
 <main id="top">
 <section class="wrap hero">
@@ -98,11 +118,12 @@ input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:
     required
   >
   <input
-  name="telephone"
-  type="tel"
-  placeholder="Votre numéro de téléphone"
-  autocomplete="tel"
-  required
+    class="full"
+    name="telephone"
+    type="tel"
+    placeholder="Votre numéro de téléphone"
+    autocomplete="tel"
+    required
   >
 
   <input
@@ -113,13 +134,7 @@ input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:
     required
   >
 
-  <input
-    class="full"
-    name="sujet"
-    placeholder="Votre besoin"
-  >
-
-  <textarea
+    <textarea
     name="message"
     placeholder="Parlez-nous rapidement de votre projet"
     required
@@ -155,6 +170,23 @@ input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:
 <footer><div class="wrap foot"><img class="smallmark" src="oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — Tous droits réservés.</div></div></footer>
 
 <script>
+const menuBtn = document.getElementById("menu-btn");
+const mobileMenu = document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click", function(){
+  const open = mobileMenu.classList.toggle("active");
+  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  menuBtn.textContent = open ? "×" : "☰";
+});
+
+mobileMenu.querySelectorAll("a").forEach(function(link){
+  link.addEventListener("click", function(){
+    mobileMenu.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
 const form = document.getElementById("contact-form");
 const button = document.getElementById("submit-btn");
 const message = document.getElementById("form-message");
