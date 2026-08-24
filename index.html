@@ -1,236 +1,456 @@
 <!doctype html>
 <html lang="fr">
 <head>
+<title>ORIA Digital — Création de sites web & automatisation IA</title>
+<meta name="description" content="ORIA Digital accompagne les entreprises avec la création de sites web modernes, du contenu digital et des solutions d’automatisation IA.">
+<link rel="canonical" href="https://www.oriadigital.fr/">
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ORIA Digital — présence digitale, contenu, automatisation IA et maintenance.">
-<title>ORIA Digital — Votre présence digitale, gérée chaque mois.</title>
 <link rel="icon" href="oria-mark.png">
+
 <style>
-:root{--bg:#050505;--panel:#0d0d0d;--gold:#d6b36a;--gold2:#f1d69b;--text:#f7f2e8;--muted:#aaa49a;--line:#2a261f;--max:1160px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at 82% 5%,#251b0b 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55}
-a{text-decoration:none;color:inherit}.wrap{width:min(var(--max),92%);margin:auto}
-nav{position:sticky;top:0;z-index:10;background:#050505e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.navin{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{height:42px;width:auto}
-.links{display:flex;gap:28px;color:#d7d0c4;font-size:14px}.links a:hover{color:var(--gold2)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;border:1px solid #9b7b3f;background:linear-gradient(#e6c77f,#b68c40);color:#090806;font-weight:800;cursor:pointer}
+:root{
+  --bg:#050505; --bg2:#0a0908; --panel:#0d0d0d; --panel2:#11100e;
+  --gold:#d6b36a; --gold2:#f3d99c; --text:#f7f2e8; --muted:#aaa49a;
+  --line:#28241d; --max:1180px; --radius:24px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 82% 0%,rgba(214,179,106,.13),transparent 25%),
+  radial-gradient(circle at 0% 45%,rgba(214,179,106,.06),transparent 22%),
+  var(--bg);
+  color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.55;overflow-x:hidden
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+  background-image:radial-gradient(rgba(255,255,255,.35) .5px,transparent .5px);
+  background-size:5px 5px;mask-image:linear-gradient(to bottom,black,transparent 70%)
+}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(var(--max),92%);margin:auto}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:30;background:rgba(5,5,5,.78);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)
+}
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between}
+.brand{height:42px;width:auto}
+.links{display:flex;align-items:center;gap:30px;color:#d5cfc3;font-size:14px}
+.links a{transition:.2s}.links a:hover{color:var(--gold2)}
+.nav-cta{margin-left:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 20px;border-radius:999px;border:1px solid #9b7b3f;
+  background:linear-gradient(135deg,#f0d48d,#b4873d);color:#090806;
+  font-weight:850;cursor:pointer;transition:transform .2s,box-shadow .2s
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(214,179,106,.15)}
 .btn.ghost{background:transparent;color:var(--gold2);box-shadow:none}
-.hero{padding:105px 0 90px;min-height:670px;display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center}
-.eyebrow{color:var(--gold);letter-spacing:.22em;text-transform:uppercase;font-size:12px;font-weight:800}
-h1{font-size:clamp(44px,6.2vw,76px);line-height:1.01;letter-spacing:-.045em;margin:17px 0 24px}h1 span{color:var(--gold2)}
-.lead{font-size:19px;color:var(--muted);max-width:650px}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
-.hero-card{min-height:450px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,#121212,#080808);padding:34px;position:relative;overflow:hidden}
-.orb{position:absolute;width:280px;height:280px;border-radius:50%;right:-70px;top:-80px;background:radial-gradient(circle,#e7cb8e55 0,#a67b2c11 45%,transparent 70%)}
-.hero-logo{width:78%;max-width:360px;display:block;margin:55px auto 28px;filter:drop-shadow(0 18px 35px #000)}
-.tag{display:inline-block;border:1px solid #5c4b2d;color:var(--gold2);padding:8px 11px;border-radius:999px;font-size:12px;margin:4px}
-section{padding:92px 0}.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,#090909,#15110a,#090909)}
-.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:40px}
-h2{font-size:42px;line-height:1.05;margin:8px 0;letter-spacing:-.03em}.sub{color:var(--muted);max-width:620px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:linear-gradient(180deg,#101010,#0a0a0a);border:1px solid var(--line);border-radius:22px;padding:26px;min-height:210px}
-.num{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:.15em}.card h3{font-size:22px;margin:20px 0 10px}.card p{color:var(--muted);margin:0}.price{color:var(--gold2);font-size:25px;font-weight:850;margin-top:20px}
-.quote{font-size:30px;line-height:1.25;max-width:900px;margin:0 auto;text-align:center}.quote strong{color:var(--gold2)}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step{padding:22px;border-left:1px solid var(--line)}.step:first-child{border-left:0}
-.step b{display:block;color:var(--gold);font-size:12px;letter-spacing:.15em}.step h3{margin:12px 0 8px}.step p{color:var(--muted);margin:0}
-.cta{border:1px solid #5c4b2d;border-radius:30px;padding:55px;background:radial-gradient(circle at 75% 30%,#5c431f33,transparent 38%),#0b0b0b;text-align:center}
-form{max-width:700px;margin:28px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:13px;text-align:left}
-input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:var(--text);padding:14px 15px;border-radius:12px;font:inherit}textarea{min-height:120px;grid-column:1/-1;resize:vertical}
-.full{grid-column:1/-1}footer{padding:45px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.smallmark{height:34px}
-.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold2);border-radius:10px;width:44px;height:44px;font-size:24px;cursor:pointer}
-.mobile-menu{display:none}
-.mobile-menu a{display:block;padding:15px 4%;color:#d7d0c4;border-top:1px solid var(--line)}
-.mobile-menu a:hover{color:var(--gold2)}
-.mobile-cta{color:#080705!important;background:linear-gradient(#e6c77f,#b68c40);font-weight:800;text-align:center;margin:15px 4%;border-radius:999px;border-top:none!important}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:70px}.grid4{grid-template-columns:1fr 1fr}.grid3{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.links,.desktop-btn{display:none}.menu-btn{display:block}.mobile-menu.active{display:block}}
-@media(max-width:560px){h2{font-size:34px}.grid4{grid-template-columns:1fr}.process{grid-template-columns:1fr}.step{border-left:0;border-top:1px solid var(--line)}.step:first-child{border-top:0}form{grid-template-columns:1fr}textarea,.full{grid-column:1}.hero-card{min-height:350px}}
+.menu-btn{
+  display:none;background:transparent;border:1px solid var(--line);color:var(--gold2);
+  border-radius:12px;width:44px;height:44px;font-size:23px;cursor:pointer
+}
+.mobile-menu{display:none;border-top:1px solid var(--line);padding:8px 4% 16px}
+.mobile-menu a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.05);color:#d7d0c4}
+.mobile-menu .mobile-cta{margin-top:12px;text-align:center;border:0;border-radius:999px;background:linear-gradient(135deg,#f0d48d,#b4873d);color:#090806;font-weight:850}
+
+/* HERO */
+.hero{
+  min-height:calc(100vh - 76px);padding:80px 0 70px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center
+}
+.eyebrow{color:var(--gold);letter-spacing:.24em;text-transform:uppercase;font-size:11px;font-weight:850}
+.hero h1{
+  font-size:clamp(48px,6.5vw,82px);line-height:.98;letter-spacing:-.055em;
+  margin:18px 0 25px;max-width:850px
+}
+.hero h1 span{
+  background:linear-gradient(100deg,#fff8e9 10%,#d6b36a 70%,#f1d69b);
+  -webkit-background-clip:text;background-clip:text;color:transparent
+}
+.lead{font-size:19px;color:var(--muted);max-width:670px}
+.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero-note{display:flex;align-items:center;gap:10px;margin-top:24px;color:#8f897e;font-size:13px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(214,179,106,.65)}
+
+.visual{
+  position:relative;min-height:500px;border:1px solid var(--line);border-radius:32px;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(214,179,106,.15),transparent 31%),
+    linear-gradient(145deg,#12110f,#070707 70%);
+  overflow:hidden;display:flex;align-items:center;justify-content:center
+}
+.visual:before{
+  content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(214,179,106,.22);
+  border-radius:50%;box-shadow:0 0 90px rgba(214,179,106,.05)
+}
+.visual:after{
+  content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(214,179,106,.12);
+  border-radius:50%
+}
+.visual-logo{width:min(67%,330px);position:relative;z-index:2;filter:drop-shadow(0 22px 45px #000)}
+.floating{
+  position:absolute;z-index:3;border:1px solid #514329;background:rgba(9,9,9,.8);
+  backdrop-filter:blur(12px);padding:11px 14px;border-radius:999px;color:#ddd4c3;font-size:11px;
+  letter-spacing:.1em
+}
+.f1{top:18%;left:7%}.f2{top:29%;right:7%}.f3{bottom:25%;left:8%}.f4{bottom:15%;right:8%}
+
+/* GENERAL */
+section{padding:105px 0}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,#080808,#141109,#080808)}
+.trust{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0
+}
+.trust-item{padding:27px 35px;border-right:1px solid var(--line)}
+.trust-item:first-child{padding-left:0}.trust-item:last-child{border-right:0}
+.trust strong{display:block;font-size:25px;color:var(--gold2);letter-spacing:-.02em}
+.trust span{display:block;color:var(--muted);font-size:13px;margin-top:5px}
+
+.section-head{display:flex;justify-content:space-between;gap:35px;align-items:end;margin-bottom:42px}
+.section-head h2{font-size:clamp(35px,4vw,52px);line-height:1.02;letter-spacing:-.04em;margin:9px 0 0}
+.sub{color:var(--muted);max-width:610px;margin:0}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{
+  position:relative;overflow:hidden;background:linear-gradient(160deg,#11100e,#090909);
+  border:1px solid var(--line);border-radius:var(--radius);padding:29px;min-height:275px;
+  transition:transform .25s,border-color .25s
+}
+.card:hover{transform:translateY(-5px);border-color:#514329}
+.card:after{
+  content:"";position:absolute;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle,rgba(214,179,106,.10),transparent 68%);
+  right:-55px;bottom:-55px
+}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.num{font-size:11px;color:var(--gold);font-weight:850;letter-spacing:.16em}
+.icon{
+  width:38px;height:38px;border:1px solid #514329;border-radius:50%;display:grid;
+  place-items:center;color:var(--gold2);font-size:15px
+}
+.card h3{font-size:24px;margin:48px 0 10px;letter-spacing:-.025em}
+.card p{color:var(--muted);margin:0;max-width:340px}
+.card-link{display:inline-flex;margin-top:22px;color:var(--gold2);font-size:13px;font-weight:750}
+
+.quote{
+  text-align:center;font-size:clamp(25px,3.2vw,40px);line-height:1.2;
+  max-width:900px;margin:auto;letter-spacing:-.025em
+}
+.quote strong{color:var(--gold2)}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.step{padding:28px;border-right:1px solid var(--line);background:#0b0b0b}
+.step:last-child{border-right:0}
+.step b{font-size:11px;color:var(--gold);letter-spacing:.16em}
+.step h3{margin:18px 0 8px;font-size:20px}.step p{color:var(--muted);margin:0;font-size:14px}
+
+.why{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:start}
+.why-intro h2{font-size:clamp(38px,4.5vw,58px);line-height:1.02;letter-spacing:-.045em;margin:10px 0 18px}
+.why-intro p{color:var(--muted);max-width:500px}
+.reasons{display:grid;gap:12px}
+.reason{
+  border:1px solid var(--line);border-radius:18px;padding:22px 23px;background:#0a0a0a;
+  display:grid;grid-template-columns:50px 1fr;gap:16px
+}
+.reason-no{color:var(--gold);font-weight:850}.reason h3{margin:0 0 5px;font-size:18px}.reason p{margin:0;color:var(--muted);font-size:14px}
+
+.cta{
+  border:1px solid #59492d;border-radius:32px;padding:62px 30px;text-align:center;
+  background:radial-gradient(circle at 50% 0,rgba(214,179,106,.13),transparent 45%),#0b0b0b
+}
+.cta h2{font-size:clamp(35px,4vw,52px);line-height:1.03;letter-spacing:-.04em;margin:12px auto 14px;max-width:760px}
+.cta p{color:var(--muted);max-width:600px;margin:auto}
+
+footer{padding:44px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:20px}.smallmark{height:34px}
+.footer-links{display:flex;gap:18px}.footer-links a:hover{color:var(--gold2)}
+
+/* POPUP */
+.offer-overlay{
+  position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.76);
+  backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:20px
+}
+.offer-overlay.active{display:flex}
+.offer-modal{
+  position:relative;width:min(920px,100%);background:linear-gradient(145deg,#15130f,#080808);
+  border:1px solid #5c4b2d;border-radius:28px;padding:43px;
+  box-shadow:0 35px 100px rgba(0,0,0,.6);animation:modalIn .35s ease-out
+}
+@keyframes modalIn{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.offer-close{position:absolute;right:18px;top:14px;border:0;background:transparent;color:#aaa49a;font-size:31px;cursor:pointer}
+.offer-intro{color:var(--muted);margin:0 0 25px}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.offer-highlight{border:1px solid var(--line);border-radius:20px;padding:24px;background:#0a0a0a}
+.offer-label{font-size:10px;letter-spacing:.18em;color:var(--gold);font-weight:850}
+.offer-highlight h3{font-size:23px;margin:13px 0 7px}.offer-highlight p{color:var(--muted);margin:0 0 15px;font-size:14px}
+.offer-highlight strong{display:block;color:var(--gold2);margin-bottom:19px}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;padding-top:65px}.visual{min-height:410px}
+  .cards{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}
+  .step:nth-child(2){border-right:0}.step:nth-child(n+3){border-top:1px solid var(--line)}
+  .why{grid-template-columns:1fr;gap:35px}
+  .links,.nav-cta{display:none}.menu-btn{display:block}
+  .mobile-menu.active{display:block}
+}
+@media(max-width:700px){
+  section{padding:78px 0}.hero{padding-top:48px}.hero h1{font-size:clamp(43px,13vw,65px)}
+  .lead{font-size:17px}.visual{min-height:350px}.visual-logo{width:65%}
+  .floating{font-size:9px;padding:8px 10px}.f1{top:12%}.f2{top:22%}.f3{bottom:18%}.f4{bottom:10%}
+  .trust{grid-template-columns:1fr}.trust-item{padding:18px 0!important;border-right:0;border-bottom:1px solid var(--line)}
+  .trust-item:last-child{border-bottom:0}
+  .section-head{display:block}.section-head .sub{margin-top:16px}
+  .cards{grid-template-columns:1fr}.process{grid-template-columns:1fr}.step{border-right:0!important;border-top:1px solid var(--line)}
+  .step:first-child{border-top:0}.offer-modal{padding:34px 19px 22px}.offer-grid{grid-template-columns:1fr}
+  .foot{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}
+}
 </style>
-</head>
-<body>
-<nav>
-<div class="wrap navin">
-<a href="#top"><img class="brand" src="oria-logo.png" alt="ORIA Digital"></a>
-<div class="links">
-<a href="#offres">Offres</a>
-<a href="#methode">Méthode</a>
-<a href="#apropos">À propos</a>
-<a href="contact.html">Contact</a>
-</div>
-<a class="btn desktop-btn" href="contact.html">Parler à ORIA</a>
-<button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
-</div>
-<div class="mobile-menu" id="mobile-menu">
-<a href="#offres">Offres</a>
-<a href="#methode">Méthode</a>
-<a href="#apropos">À propos</a>
-<a href="contact.html">Contact</a>
-<a class="mobile-cta" href="contact.html">Parler à ORIA</a>
-</div>
-</nav>
 
-<main id="top">
-<section class="wrap hero">
-<div><div class="eyebrow">ORIA DIGITAL</div>
-<h1>Votre présence digitale,<br><span>gérée chaque mois.</span></h1>
-<p class="lead">Site web, contenu, automatisation IA et maintenance : ORIA accompagne votre entreprise avec une approche simple, premium et continue.</p>
-<div class="actions"><a class="btn" href="#contact">Demander un diagnostic</a><a class="btn ghost" href="#offres">Découvrir les offres</a></div>
-</div>
-<div class="hero-card"><div class="orb"></div><img class="hero-logo" src="oria-mark.png" alt="Logo ORIA">
-<div style="text-align:center"><span class="tag">WEB</span><span class="tag">CONTENT</span><span class="tag">IA</span><span class="tag">MAINTENANCE</span></div></div>
-</section>
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ORIA Digital">
+<meta property="og:title" content="ORIA Digital — Création de sites web & automatisation IA">
+<meta property="og:description" content="ORIA Digital accompagne les entreprises avec la création de sites web modernes, le contenu digital et des solutions d’automatisation par l’intelligence artificielle.">
+<meta property="og:url" content="https://xamine31.github.io/ORIA_DIGITAL/">
+<meta property="og:image" content="https://xamine31.github.io/ORIA_DIGITAL/oria-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ORIA Digital — Création de sites web & automatisation IA">
+<meta name="twitter:description" content="ORIA Digital accompagne les entreprises avec la création de sites web modernes, le contenu digital et des solutions d’automatisation par l’intelligence artificielle.">
+<meta name="twitter:image" content="https://xamine31.github.io/ORIA_DIGITAL/oria-logo.png">
 
-<section class="band"><div class="wrap" style="padding:58px 0"><p class="quote">Un seul interlocuteur pour <strong>construire, faire vivre et améliorer</strong> votre présence digitale.</p></div></section>
 
-<section id="offres" class="wrap"><div class="section-head"><div><div class="eyebrow">NOS OFFRES</div><h2>Les quatre briques ORIA.</h2></div><p class="sub">Des prestations complémentaires pour créer une relation durable avec votre entreprise.</p></div>
-<div class="grid4">
-<article class="card"><div class="num">01 / WEB</div><h3>Site & présence</h3><p>Création et évolution de sites web et de votre présence en ligne.</p></article>
-<article class="card"><div class="num">02 / CONTENT</div><h3>Contenu</h3><p>Vidéos, photos et publications pour faire vivre votre image.</p></article>
-<article class="card"><div class="num">03 / IA</div><h3>Automatisation</h3><p>Workflows et agents IA pour automatiser certaines tâches.</p></article>
-<article class="card"><div class="num">04 / MAINTENANCE</div><h3>Suivi</h3><p>Maintenance, modifications et optimisation dans la durée.</p></article>
-</div></section>
-
-<section id="methode" class="wrap"><div class="section-head"><div><div class="eyebrow">LA MÉTHODE</div><h2>Du diagnostic au suivi.</h2></div><p class="sub">L'objectif est de transformer un besoin ponctuel en accompagnement continu.</p></div>
-<div class="process">
-<div class="step"><b>01</b><h3>Diagnostic</h3><p>Comprendre les besoins et les points à améliorer.</p></div>
-<div class="step"><b>02</b><h3>Installation</h3><p>WEB, contenu ou IA selon la priorité.</p></div>
-<div class="step"><b>03</b><h3>Abonnement</h3><p>Production, maintenance et optimisation mensuelles.</p></div>
-<div class="step"><b>04</b><h3>Extension</h3><p>Ajouter de nouvelles automatisations et prestations.</p></div>
-</div></section>
-
-<section id="apropos" class="wrap"><div class="section-head"><div><div class="eyebrow">POURQUOI ORIA</div><h2>Une approche pensée pour durer.</h2></div></div>
-<div class="grid3">
-<article class="card"><div class="num">01</div><h3>Un interlocuteur</h3><p>Une relation simple pour piloter les différents besoins digitaux.</p></article>
-<article class="card"><div class="num">02</div><h3>Une image premium</h3><p>Une identité cohérente et une attention portée à la qualité des livrables.</p></article>
-<article class="card"><div class="num">03</div><h3>Une logique continue</h3><p>Le digital n'est pas livré puis oublié : il est maintenu et amélioré.</p></article>
-</div></section>
-
-<section id="contact" class="wrap"><div class="cta">
-<div class="eyebrow">PARLONS DE VOTRE PROJET</div><h2>Votre présence digitale mérite mieux.</h2>
-<p class="sub" style="margin:0 auto">Demandez un premier échange avec ORIA pour identifier vos priorités.</p>
-
-<form id="contact-form"
-      action="https://formsubmit.co/ajax/oriadigital@outlook.fr"
-      method="POST">
-
-  <input
-    name="nom"
-    placeholder="Nom / entreprise"
-    required
-  >
-  <input
-    class="full"
-    name="telephone"
-    type="tel"
-    placeholder="Votre numéro de téléphone"
-    autocomplete="tel"
-    required
-  >
-
-  <input
-    class="full"
-    name="email"
-    type="email"
-    placeholder="Votre email"
-    required
-  >
-
-    <textarea
-    name="message"
-    placeholder="Parlez-nous rapidement de votre projet"
-    required
-  ></textarea>
-
-  <input type="hidden"
-         name="_subject"
-         value="Nouveau contact - ORIA Digital">
-
-  <input type="hidden"
-         name="_template"
-         value="table">
-
-  <input type="text"
-         name="_honey"
-         style="display:none"
-         tabindex="-1"
-         autocomplete="off">
-
-  <button id="submit-btn"
-          class="btn full"
-          type="submit">
-    Envoyer ma demande
-  </button>
-
-  <div id="form-message"
-       class="full"
-       role="status"
-       aria-live="polite"></div>
-
-</form></div></section>
-</main>
-<footer><div class="wrap foot"><img class="smallmark" src="oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — Tous droits réservés.</div></div></footer>
-
-<script>
-const menuBtn = document.getElementById("menu-btn");
-const mobileMenu = document.getElementById("mobile-menu");
-
-menuBtn.addEventListener("click", function(){
-  const open = mobileMenu.classList.toggle("active");
-  menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-  menuBtn.textContent = open ? "×" : "☰";
-});
-
-mobileMenu.querySelectorAll("a").forEach(function(link){
-  link.addEventListener("click", function(){
-    mobileMenu.classList.remove("active");
-    menuBtn.setAttribute("aria-expanded", "false");
-    menuBtn.textContent = "☰";
-  });
-});
-
-const form = document.getElementById("contact-form");
-const button = document.getElementById("submit-btn");
-const message = document.getElementById("form-message");
-
-form.addEventListener("submit", async function(event) {
-  event.preventDefault();
-
-  button.disabled = true;
-  button.textContent = "Envoi en cours…";
-
-  message.textContent = "";
-  message.style.marginTop = "15px";
-
-  try {
-    const response = await fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: {
-        "Accept": "application/json"
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error("Erreur lors de l'envoi");
-    }
-
-    form.reset();
-
-    message.textContent =
-      "✓ Demande envoyée avec succès ! Nous reviendrons vers vous rapidement.";
-
-    message.style.color = "#d6b36a";
-
-  } catch (error) {
-
-    message.textContent =
-      "Une erreur est survenue. Veuillez réessayer.";
-
-    message.style.color = "#e6a4a4";
-  }
-
-  button.disabled = false;
-  button.textContent = "Envoyer ma demande";
-});
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ORIA Digital">
+<meta property="og:title" content="ORIA Digital — Création de sites web & automatisation IA">
+<meta property="og:description" content="Création de sites web modernes et automatisation IA pour les entreprises.">
+<meta property="og:url" content="https://www.oriadigital.fr/">
+<meta property="og:image" content="https://www.oriadigital.fr/oria-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"ORIA Digital",
+  "url":"https://www.oriadigital.fr/",
+  "logo":"https://www.oriadigital.fr/oria-logo.png",
+  "email":"mailto:OriaDigital@outlook.fr",
+  "telephone":"+33773848678",
+  "sameAs":[]
+}
 </script>
 
-</body></html>
+</head>
+
+<body>
+<nav>
+  <div class="wrap navin">
+    <a href="/" aria-label="ORIA Digital"><img class="brand" src="oria-logo.png" alt="ORIA Digital"></a>
+    <div class="links">
+      <a href="/offres/">Offres</a>
+      <a href="/#methode">Méthode</a>
+      <a href="/#apropos">À propos</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <a class="btn nav-cta" href="/contact/">Parler à ORIA</a>
+    <button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="/offres/">Offres</a>
+    <a href="/#methode">Méthode</a>
+    <a href="/#apropos">À propos</a>
+    <a href="/contact/">Contact</a>
+    <a class="mobile-cta" href="/contact/">Parler à ORIA</a>
+  </div>
+</nav>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <div class="eyebrow">ORIA DIGITAL · WEB · IA</div>
+      <h1>Le digital qui <span>travaille</span> pour votre entreprise.</h1>
+      <p class="lead">
+        Nous créons votre présence digitale, puis nous la faisons évoluer :
+        site web, contenu, automatisation IA et suivi continu.
+      </p>
+      <div class="actions">
+        <a class="btn" href="/contact/">Demander un diagnostic</a>
+        <a class="btn ghost" href="/offres/">Voir les offres →</a>
+      </div>
+      <div class="hero-note"><span class="dot"></span> Diagnostic & devis gratuits · accompagnement sur mesure</div>
+    </div>
+
+    <div class="visual">
+      <span class="floating f1">SITE WEB</span>
+      <span class="floating f2">AUTOMATISATION IA</span>
+      <span class="floating f3">CONTENU</span>
+      <span class="floating f4">MAINTENANCE</span>
+      <img class="visual-logo" src="oria-mark.png" alt="ORIA Digital">
+    </div>
+  </section>
+
+  <section class="band" style="padding:0">
+    <div class="wrap trust">
+      <div class="trust-item"><strong>01</strong><span>Un interlocuteur pour votre digital</span></div>
+      <div class="trust-item"><strong>02</strong><span>Des solutions pensées pour évoluer</span></div>
+      <div class="trust-item"><strong>03</strong><span>Un accompagnement au-delà de la livraison</span></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="offres">
+    <div class="section-head">
+      <div><div class="eyebrow">CE QUE NOUS FAISONS</div><h2>Tout ce qu'il faut pour avancer.</h2></div>
+      <p class="sub">Une offre claire, sans multiplier les prestataires : création, contenu, IA et évolution de votre présence digitale.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card-top"><span class="num">01 / WEB</span><span class="icon">↗</span></div>
+        <h3>Site & présence</h3>
+        <p>Des sites modernes, rapides et cohérents avec l'image de votre entreprise.</p>
+        <a class="card-link" href="/offres/">Découvrir →</a>
+      </article>
+      <article class="card">
+        <div class="card-top"><span class="num">02 / CONTENT</span><span class="icon">◌</span></div>
+        <h3>Contenu</h3>
+        <p>Photos, vidéos et publications pour garder une communication active et professionnelle.</p>
+        <a class="card-link" href="/offres/">Découvrir →</a>
+      </article>
+      <article class="card">
+        <div class="card-top"><span class="num">03 / IA</span><span class="icon">✦</span></div>
+        <h3>Automatisation IA</h3>
+        <p>Des workflows intelligents pour réduire les tâches répétitives et gagner du temps.</p>
+        <a class="card-link" href="/offres/">Découvrir →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p class="quote">Votre entreprise n'a pas besoin de <strong>plus d'outils</strong>. Elle a besoin d'un digital <strong>qui fonctionne ensemble.</strong></p>
+    </div>
+  </section>
+
+  <section class="wrap" id="methode">
+    <div class="section-head">
+      <div><div class="eyebrow">LA MÉTHODE ORIA</div><h2>Simple. Clair. Continu.</h2></div>
+      <p class="sub">Nous avançons étape par étape, avec une logique pensée pour construire une relation durable.</p>
+    </div>
+
+    <div class="process">
+      <div class="step"><b>01</b><h3>Diagnostic</h3><p>On identifie les besoins, les blocages et les priorités.</p></div>
+      <div class="step"><b>02</b><h3>Création</h3><p>Nous mettons en place la solution la plus pertinente.</p></div>
+      <div class="step"><b>03</b><h3>Suivi</h3><p>Maintenance, contenu et optimisation au fil des besoins.</p></div>
+      <div class="step"><b>04</b><h3>Évolution</h3><p>De nouvelles fonctionnalités et automatisations quand votre activité grandit.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="apropos">
+    <div class="why">
+      <div class="why-intro">
+        <div class="eyebrow">POURQUOI ORIA</div>
+        <h2>Pas juste livrer. Faire évoluer.</h2>
+        <p>Le site ou l'automatisation n'est que le début. ORIA accompagne l'entreprise dans la durée pour garder une présence digitale utile, cohérente et à jour.</p>
+      </div>
+
+      <div class="reasons">
+        <article class="reason"><div class="reason-no">01</div><div><h3>Une vision globale</h3><p>Web, contenu et IA sont pensés comme un même écosystème.</p></div></article>
+        <article class="reason"><div class="reason-no">02</div><div><h3>Une image professionnelle</h3><p>Une identité visuelle cohérente et des livrables soignés.</p></div></article>
+        <article class="reason"><div class="reason-no">03</div><div><h3>Un accompagnement continu</h3><p>Votre digital peut évoluer avec votre activité, sans repartir de zéro.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="cta">
+      <div class="eyebrow">VOTRE PROJET</div>
+      <h2>On regarde ensemble ce qui peut être amélioré.</h2>
+      <p>Diagnostic et devis gratuits. Un premier échange suffit pour identifier les priorités.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn" href="/contact/">Parler à ORIA</a>
+        <a class="btn ghost" href="/offres/">Comparer les offres</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <img class="smallmark" src="oria-logo.png" alt="ORIA Digital">
+    <div class="footer-links">
+      <a href="/offres/">Offres</a>
+      <a href="/contact/">Contact</a>
+      <a href="/#methode">Méthode</a>
+    </div>
+    <div>© 2026 ORIA Digital</div>
+  </div>
+</footer>
+
+<!-- POPUP OFFRES -->
+<div class="offer-overlay" id="offer-overlay" aria-hidden="true">
+  <div class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="offer-title">
+    <button class="offer-close" id="offer-close" aria-label="Fermer">×</button>
+    <div class="eyebrow">OFFRES DU MOMENT</div>
+    <h2 id="offer-title">Une première étape sans engagement.</h2>
+    <p class="offer-intro">Découvrez les deux solutions actuellement mises en avant par ORIA.</p>
+
+    <div class="offer-grid">
+      <article class="offer-highlight">
+        <span class="offer-label">CRÉATION DE SITE</span>
+        <h3>Diagnostic & devis gratuits</h3>
+        <p>Un premier échange pour définir le site adapté à votre entreprise.</p>
+        <strong>+ 1 mois d'abonnement offert</strong>
+        <a class="btn" href="/contact/">Profiter de l'offre</a>
+      </article>
+      <article class="offer-highlight">
+        <span class="offer-label">AUTOMATISATION IA</span>
+        <h3>Faites travailler l'IA pour vous</h3>
+        <p>Identifiez les tâches répétitives qui peuvent être automatisées dans votre activité.</p>
+        <strong>Diagnostic sur demande</strong>
+        <a class="btn ghost" href="/contact/">Parler à ORIA</a>
+      </article>
+    </div>
+  </div>
+</div>
+
+<script>
+const menuBtn=document.getElementById("menu-btn");
+const mobileMenu=document.getElementById("mobile-menu");
+
+menuBtn.addEventListener("click",()=>{
+  const open=mobileMenu.classList.toggle("active");
+  menuBtn.setAttribute("aria-expanded",open?"true":"false");
+  menuBtn.textContent=open?"×":"☰";
+});
+mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  mobileMenu.classList.remove("active");
+  menuBtn.setAttribute("aria-expanded","false");
+  menuBtn.textContent="☰";
+}));
+
+const overlay=document.getElementById("offer-overlay");
+const close=document.getElementById("offer-close");
+
+function openOffer(){
+  overlay.classList.add("active");
+  overlay.setAttribute("aria-hidden","false");
+  document.body.style.overflow="hidden";
+}
+function closeOffer(){
+  overlay.classList.remove("active");
+  overlay.setAttribute("aria-hidden","true");
+  document.body.style.overflow="";
+}
+close.addEventListener("click",closeOffer);
+overlay.addEventListener("click",e=>{if(e.target===overlay)closeOffer()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeOffer()});
+setTimeout(openOffer,700);
+</script>
+</body>
+</html>

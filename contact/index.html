@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — ORIA Digital</title>
+<link rel="icon" href="../oria-mark.png">
+<style>
+:root{--bg:#050505;--gold:#d6b36a;--gold2:#f1d69b;--text:#f7f2e8;--muted:#aaa49a;--line:#2a261f;--max:860px}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 82% 5%,#251b0b 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55}
+a{text-decoration:none;color:inherit}.wrap{width:min(var(--max),92%);margin:auto}nav{position:sticky;top:0;z-index:10;background:#050505e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{height:42px}.links{display:flex;gap:28px;color:#d7d0c4;font-size:14px}.links a:hover{color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:999px;border:1px solid #9b7b3f;background:linear-gradient(#e6c77f,#b68c40);color:#090806;font-weight:800;cursor:pointer}.btn.ghost{background:transparent;color:var(--gold2)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--gold2);border-radius:10px;width:44px;height:44px;font-size:24px}.mobile-menu{display:none}.mobile-menu a{display:block;padding:15px 4%;color:#d7d0c4;border-top:1px solid var(--line)}.mobile-cta{color:#080705!important;background:linear-gradient(#e6c77f,#b68c40);font-weight:800;text-align:center;margin:15px 4%;border-radius:999px}
+main{padding:90px 0}.eyebrow{color:var(--gold);letter-spacing:.22em;text-transform:uppercase;font-size:12px;font-weight:800}h1{font-size:clamp(45px,7vw,72px);line-height:1.02;letter-spacing:-.045em;margin:15px 0}.lead{color:var(--muted);font-size:18px}
+form{margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:14px}input,textarea{width:100%;background:#070707;border:1px solid var(--line);color:var(--text);padding:16px;border-radius:14px;font:inherit}textarea{min-height:170px;grid-column:1/-1;resize:vertical}.full{grid-column:1/-1}.btn.full{width:100%;border:0;font-size:16px}
+#form-message{min-height:24px;color:var(--gold2)}
+.contact-note{margin-top:28px;padding:22px;border:1px solid var(--line);border-radius:18px;color:var(--muted)}footer{padding:45px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;align-items:center}.smallmark{height:34px}
+@media(max-width:900px){.links,.desktop-btn{display:none}.menu-btn{display:block}.mobile-menu.active{display:block}}
+@media(max-width:560px){form{grid-template-columns:1fr}.full{grid-column:1}}
+</style>
+
+<meta name="description" content="Contactez ORIA Digital pour votre projet de site web, de contenu digital ou d’automatisation IA.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://xamine31.github.io/ORIA_DIGITAL/contact/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ORIA Digital">
+<meta property="og:title" content="Contact — ORIA Digital">
+<meta property="og:description" content="Contactez ORIA Digital pour votre projet de site web, de contenu digital ou d’automatisation IA.">
+<meta property="og:url" content="https://xamine31.github.io/ORIA_DIGITAL/contact/">
+<meta property="og:image" content="https://xamine31.github.io/ORIA_DIGITAL/oria-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact — ORIA Digital">
+<meta name="twitter:description" content="Contactez ORIA Digital pour votre projet de site web, de contenu digital ou d’automatisation IA.">
+<meta name="twitter:image" content="https://xamine31.github.io/ORIA_DIGITAL/oria-logo.png">
+
+</head>
+<body>
+<nav><div class="wrap navin">
+<a href="/" aria-label="ORIA Digital"><img class="brand" src="../oria-logo.png" alt="ORIA Digital"></a>
+<div class="links"><a href="/offres/">Offres</a><a href="/#methode">Méthode</a><a href="/#apropos">À propos</a><a href="/contact/">Contact</a></div>
+<a class="btn desktop-btn" href="/contact/">Parler à ORIA</a><button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+</div>
+<div class="mobile-menu" id="mobile-menu"><a href="/offres/">Offres</a><a href="/#methode">Méthode</a><a href="/#apropos">À propos</a><a href="/contact/">Contact</a><a class="mobile-cta" href="/contact/">Parler à ORIA</a></div></nav>
+
+<main class="wrap">
+<div class="eyebrow">CONTACT</div>
+<h1>Parlons de votre projet.</h1>
+<p class="lead">Diagnostic et devis gratuits. Décrivez-nous votre besoin et nous reviendrons vers vous rapidement.</p>
+
+<form id="contact-form" action="https://formsubmit.co/ajax/oriadigital@outlook.fr" method="POST">
+<input name="nom" placeholder="Nom / entreprise" required>
+<input name="telephone" type="tel" placeholder="Votre numéro de téléphone" autocomplete="tel" required>
+<input class="full" name="email" type="email" placeholder="Votre email" required>
+<textarea name="message" placeholder="Parlez-nous rapidement de votre projet" required></textarea>
+<input type="hidden" name="_subject" value="Nouveau contact - ORIA Digital">
+<input type="hidden" name="_template" value="table">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<button id="submit-btn" class="btn full" type="submit">Envoyer ma demande</button>
+<div id="form-message" class="full" role="status" aria-live="polite"></div>
+</form>
+
+<div class="contact-note">
+<strong style="color:var(--gold2)">Vous préférez un échange direct ?</strong><br>
+Téléphone : +33 7 73 84 86 78
+</div>
+</main>
+
+<footer><div class="wrap foot"><img class="smallmark" src="../oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — <a href="/offres/">Offres</a></div></div></footer>
+<script>
+const menuBtn=document.getElementById("menu-btn"),mobileMenu=document.getElementById("mobile-menu");
+menuBtn.addEventListener("click",()=>{const open=mobileMenu.classList.toggle("active");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"});
+mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mobileMenu.classList.remove("active");menuBtn.setAttribute("aria-expanded","false");menuBtn.textContent="☰"}));
+
+const form=document.getElementById("contact-form"),button=document.getElementById("submit-btn"),message=document.getElementById("form-message");
+form.addEventListener("submit",async function(event){
+ event.preventDefault(); button.disabled=true; button.textContent="Envoi en cours…"; message.textContent="";
+ try{
+  const response=await fetch(form.action,{method:"POST",body:new FormData(form),headers:{"Accept":"application/json"}});
+  if(!response.ok) throw new Error("Erreur");
+  form.reset(); message.textContent="✓ Demande envoyée avec succès ! Nous reviendrons vers vous rapidement."; message.style.color="#d6b36a";
+ }catch(e){message.textContent="Une erreur est survenue. Veuillez réessayer.";message.style.color="#e6a4a4";}
+ button.disabled=false;button.textContent="Envoyer ma demande";
+});
+</script>
+</body>
+</html>

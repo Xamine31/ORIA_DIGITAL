@@ -1,0 +1,34 @@
+ORIA DIGITAL — SEO / GOOGLE SEARCH CONSOLE
+
+DOMAINE OFFICIEL
+https://www.oriadigital.fr/
+
+CONTACT
+Email : OriaDigital@outlook.fr
+Téléphone : +33 7 73 84 86 78
+
+INSTAGRAM / LINKEDIN
+Laissés volontairement vides.
+
+SEO
+- robots.txt -> https://www.oriadigital.fr/sitemap.xml
+- sitemap.xml -> domaine officiel
+- canonical -> domaine officiel
+- Open Graph -> domaine officiel
+- JSON-LD Organization -> domaine officiel
+
+GOOGLE SEARCH CONSOLE
+1. Ouvrir : https://search.google.com/search-console/
+2. Ajouter une propriété.
+3. Choisir « Domaine ».
+4. Saisir : oriadigital.fr (sans https:// et sans www).
+5. Google affichera une méthode de vérification DNS.
+6. Ajouter le TXT fourni par Google dans la zone DNS de votre domaine.
+7. Une fois la propriété validée : Search Console > Sitemaps.
+8. Envoyer : sitemap.xml
+9. Utiliser Inspection de l'URL pour vérifier les pages principales.
+
+IMPORTANT
+Le domaine www.oriadigital.fr doit continuer à pointer vers votre hébergement/GitHub Pages.
+Ne modifiez pas les DNS existants sauf pour ajouter le TXT de vérification demandé par Google.
+Instagram et LinkedIn restent vides comme demandé.
