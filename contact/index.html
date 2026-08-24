@@ -18,6 +18,46 @@ form{margin-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:14px}input,t
 .contact-note{margin-top:28px;padding:22px;border:1px solid var(--line);border-radius:18px;color:var(--muted)}footer{padding:45px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.foot{display:flex;justify-content:space-between;align-items:center}.smallmark{height:34px}
 @media(max-width:900px){.links,.desktop-btn{display:none}.menu-btn{display:block}.mobile-menu.active{display:block}}
 @media(max-width:560px){form{grid-template-columns:1fr}.full{grid-column:1}}
+.contact-social{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:35px;
+  padding-top:25px;
+  border-top:1px solid var(--line);
+}
+
+.social-link{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:11px 16px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--muted);
+  font-size:13px;
+  transition:.2s ease;
+}
+
+.social-link:hover{
+  color:var(--gold2);
+  border-color:#514329;
+  transform:translateY(-2px);
+}
+
+@media(max-width:600px){
+  .contact-social{
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  .social-link{
+    justify-content:center;
+    width:100%;
+  }
+}
 </style>
 
 <meta name="description" content="Contactez ORIA Digital pour votre projet de site web, de contenu digital ou d’automatisation IA.">
@@ -66,7 +106,17 @@ Téléphone : +33 7 73 84 86 78
 </div>
 </main>
 
-<footer><div class="wrap foot"><img class="smallmark" src="../oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — <a href="/offres/">Offres</a></div></div></footer>
+<footer><div class="wrap foot"><img class="smallmark" src="../oria-logo.png" alt="ORIA Digital"><div>© 2026 ORIA Digital — <a href="/offres/">Offres</a></div></div><div class="contact-social">
+  <a href="mailto:OriaDigital@outlook.fr" class="social-link">
+    ✉️
+    <span>OriaDigital@outlook.fr</span>
+  </a>
+
+  <a href="https://www.instagram.com/oria._.digital/" target="_blank" rel="noopener" class="social-link">
+    📷
+    <span>Instagram</span>
+  </a>
+</div></footer>
 <script>
 const menuBtn=document.getElementById("menu-btn"),mobileMenu=document.getElementById("mobile-menu");
 menuBtn.addEventListener("click",()=>{const open=mobileMenu.classList.toggle("active");menuBtn.setAttribute("aria-expanded",open?"true":"false");menuBtn.textContent=open?"×":"☰"});
